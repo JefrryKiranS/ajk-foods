@@ -6,6 +6,8 @@ const cookieParser = require("cookie-parser");
 
 const authRoutes = require("./routes/auth");
 const protectedRoutes = require("./routes/protected"); // Added protected routes
+const updateRoutes = require("./routes/update"); // Import update routes
+const systemUpdatesRoute = require("./routes/systemUpdates");
 
 const app = express();
 
@@ -17,6 +19,8 @@ app.use(cookieParser());
 // Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/protected", protectedRoutes); // Register the protected routes
+app.use("/api/updates", updateRoutes); // Register update route
+app.use("/api/system", systemUpdatesRoute);
 
 // Load environment variables
 const PORT = process.env.PORT || 5001;
